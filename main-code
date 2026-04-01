@@ -1,0 +1,25 @@
+const int TOUCH_PIN = 7;
+const int LED_PIN   = 6;  // external LED with 220 ohm resistor to GND
+
+int lastState = LOW;
+
+void setup() {
+  pinMode(TOUCH_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int currentState = digitalRead(TOUCH_PIN);
+
+  if (currentState == HIGH && lastState == LOW) {
+    // Single flash on each tap
+    digitalWrite(LED_PIN, HIGH);
+    delay(100);
+    digitalWrite(LED_PIN, LOW);
+    Serial.println("Touched!");
+  }
+
+  lastState = currentState;
+  delay(50); // debounce
+}
