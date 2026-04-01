@@ -1,5 +1,3 @@
-# Touch-module
-This code is used for using the TTP223 touch module with an Arduino UNO R4 MINIMA. By Aryan Builds.
 # TTP223 Touch Sensor — Arduino R4 Minima
 
 A beginner-friendly exploration of the TTP223 capacitive touch module using the Arduino UNO R4 Minima. Touch the pad, trigger an action — as simple as that!
