@@ -1,7 +1,7 @@
 const int TOUCH_PIN = 7;
-const int LED_PIN   = 6;  // external LED with 220 ohm resistor to GND
+const int LED_PIN   = 6;
 
-int lastState = LOW;
+int lastState = HIGH;  // changed from LOW to HIGH
 
 void setup() {
   pinMode(TOUCH_PIN, INPUT);
@@ -12,8 +12,7 @@ void setup() {
 void loop() {
   int currentState = digitalRead(TOUCH_PIN);
 
-  if (currentState == HIGH && lastState == LOW) {
-    // Single flash on each tap
+  if (currentState == LOW && lastState == HIGH) {  
     digitalWrite(LED_PIN, HIGH);
     delay(100);
     digitalWrite(LED_PIN, LOW);
@@ -21,5 +20,5 @@ void loop() {
   }
 
   lastState = currentState;
-  delay(50); // debounce
+  delay(50);
 }
